@@ -142,32 +142,25 @@ ORDER BY 순위;
 -- FILES
 -- ================================================================
 
-/*
-  sql-franchise-analysis/
-  ├── scripts/
-  │   ├── generate_franchise_data.py   -- 가상 데이터 생성 및 SQLite 적재
-  │   └── fetch_seoul_data.py          -- 서울 열린데이터광장 API 수집
-  ├── queries/
-  │   ├── phase2_basic_queries.sql     -- SELECT · WHERE · JOIN · GROUP BY
-  │   ├── phase3_analysis_queries.sql  -- HAVING · 서브쿼리 · 윈도우 함수
-  │   └── phase4_view_queries.sql      -- VIEW · 데이터마트
-  ├── notebooks/
-  │   ├── phase2_basic.ipynb
-  │   ├── phase3_analysis.ipynb
-  │   └── phase4_view.ipynb
-  └── data/                            -- gitignored
-      ├── franchise.db
-      └── seoul_commercial.db
-*/
+SELECT path, description FROM project_files ORDER BY phase;
+
+-- path                                   description
+-- scripts/generate_franchise_data.py  -- 가상 데이터 생성 및 SQLite 적재
+-- scripts/fetch_seoul_data.py         -- 서울 열린데이터광장 API 수집
+-- queries/phase2_basic_queries.sql    -- SELECT · WHERE · JOIN · GROUP BY
+-- queries/phase3_analysis_queries.sql -- HAVING · 서브쿼리 · 윈도우 함수
+-- queries/phase4_view_queries.sql     -- VIEW · 데이터마트
+-- notebooks/phase2_basic.ipynb
+-- notebooks/phase3_analysis.ipynb
+-- notebooks/phase4_view.ipynb
+-- data/                               -- gitignored
 
 -- ================================================================
 -- PHASES
 -- ================================================================
 
-/*
-  Phase 1 │ 데이터 설계 · 가상 데이터 생성 · SQLite 적재
-  Phase 2 │ SELECT · WHERE · ORDER BY · GROUP BY · 2-3 table JOIN
-  Phase 3 │ HAVING · subquery · window function (RANK)
-  Phase 4 │ CREATE VIEW · data mart
-*/
+SELECT 1 AS phase, 'ERD 설계 · 가상 데이터 생성 · SQLite 적재'          AS covered;
+SELECT 2 AS phase, 'SELECT · WHERE · ORDER BY · GROUP BY · JOIN'         AS covered;
+SELECT 3 AS phase, 'HAVING · subquery · window function (RANK)'          AS covered;
+SELECT 4 AS phase, 'CREATE VIEW · data mart'                             AS covered;
 ```
