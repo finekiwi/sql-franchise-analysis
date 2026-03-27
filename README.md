@@ -1,12 +1,13 @@
 ```sql
-/*──────────────────────────────────────────────────────────────────
-  sql-franchise-analysis
-  외식 프랜차이즈 시나리오 기반 SQL 분석 실습
+-- sql-franchise-analysis
+-- 외식 프랜차이즈 시나리오 기반 SQL 분석 실습
 
-  database  : franchise.db · seoul_commercial.db
-  records   : daily_sales 58K · 서울 공공 상권 270만 건
-  stack     : SQLite · Python · pandas · Jupyter
-──────────────────────────────────────────────────────────────────*/
+CREATE DATABASE sql_franchise_analysis
+    USING     SQLite, Python, pandas, Jupyter
+    RECORDS   (
+        franchise_db      58385,   -- daily_sales
+        seoul_commercial  2781242  -- 추정매출 · 점포 · 유동인구
+    );
 ```
 
 <br>
