@@ -17,6 +17,12 @@ CREATE DATABASE sql_franchise_analysis
 -- DATASET
 -- ================================================================
 
+-- 외식 프랜차이즈 데이터 분석 업무에서 실제로 다루는 테이블 구조를 그대로 반영
+--   stores       → 지역별 · 업태별 매장 성과 비교
+--   daily_sales  → 메뉴 믹스 분석 · 시계열 매출 트렌드
+--   promotions   → 프로모션 기간 매출 효과 측정
+--   inventory    → 식자재 회전율 · 발주 최적화
+--
 -- 가상 브랜드 "맛나국밥" · numpy seed 42 · 실존하지 않는 회사
 
 INSERT INTO dataset_overview VALUES
