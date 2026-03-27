@@ -14,6 +14,31 @@ CREATE DATABASE sql_franchise_analysis
 
 ```sql
 -- ================================================================
+-- DATASET
+-- ================================================================
+
+-- 가상 브랜드 "맛나국밥" · numpy seed 42 · 실존하지 않는 회사
+
+INSERT INTO dataset_overview VALUES
+--  table          rows    description
+    ('stores',       20,  '5개 지역 (서울 8 · 경기 4 · 인천 2 · 부산 3 · 대구 3) / 직영 30% · 가맹 70%'),
+    ('menu_items',    8,  '탕 3 (설렁탕·갈비탕·도가니탕) · 안주 1 · 사이드 2 · 주류 2'),
+    ('daily_sales', 58385, '2025-01-01 ~ 2025-12-31 · 매장×메뉴×날짜'),
+    ('promotions',   6,  '신년할인 · 봄맞이1+1 · 여름보양식 · 추석세트 · 연말감사 · 긴급재고소진'),
+    ('inventory',  1440,  '20매장 × 6식자재 × 12개월 · 월별 입출고');
+
+-- 수요 시뮬레이션 로직 (scripts/generate_franchise_data.py)
+SELECT
+    'Poisson(λ = base_qty × store_factor × weekend_boost × season_boost)' AS quantity_model,
+    'UNIFORM(0.7, 1.3)'  AS store_factor,   -- 매장별 인기도 차이
+    '1.35 if 토·일'      AS weekend_boost,  -- 주말 트래픽 +35%
+    '1.25 if 12·1·2월'  AS season_boost;   -- 겨울 탕류 성수기 +25%
+```
+
+<br>
+
+```sql
+-- ================================================================
 -- SCHEMA
 -- ================================================================
 
